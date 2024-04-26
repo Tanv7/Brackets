@@ -26,15 +26,15 @@ public class Brackets {
                 a.add(y);
                 continue;
             }
-            if (a.isEmpty())
-                continue;
-            if (y == ']' && a.getLast() != '['){count++; continue;}
+            //if (a.isEmpty())
+                //continue;
+            if (y == ']' && (a.isEmpty()||a.getLast() != '[')) {count++; continue;}
             //return false;
-            if (y == ')' && a.getLast() != '('){count++; continue;}
+            if (y == ')' && (a.isEmpty()|| a.getLast() != '(')) {count++; continue;}
             // return false;
-            if (y == '}' && a.getLast() != '{'){count++; continue;}
+            if (y == '}' && (a.isEmpty()|| a.getLast() != '{')) {count++; continue;}
             // return false;
-            a.removeLast();
+            if (!a.isEmpty())a.removeLast();
         }
         if (!a.isEmpty()) count++;
         return count;
